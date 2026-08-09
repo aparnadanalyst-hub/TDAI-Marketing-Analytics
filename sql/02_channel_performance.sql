@@ -13,9 +13,6 @@ JOIN fact_campaign_message fcm
 GROUP BY dc.channel
 ORDER BY open_rate DESC;
 
---Insight: Reply rate is high with 14.1% for Whatsapp DM and 11.3 reply rate for LinkedIn DM.
---This says people are interacting with content related to infographic and Whatsapp sharing
-
 ----------------------------------------------------------------------------------------------------------
 --Does channel performance vary by campaign type?
 SELECT
