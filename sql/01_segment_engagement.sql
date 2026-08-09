@@ -22,6 +22,7 @@ JOIN fact_campaign_message fcm
     ON dc.contact_id = fcm.contact_id
 GROUP BY dc.customer_segment
 ORDER BY engagement_rate DESC;
+-------------------------------------------------------------------------------------------------------
 
 -- Customer-level engagement rate (% of unique contacts who engaged at least once)
 SELECT
