@@ -206,10 +206,6 @@ Analysis in progress. SQL queries and findings being added.
   engage more with any existing internship or visa-related campaigns, which would turn
   this into an evidence-based recommendation.
 
-## Tools Used
-
-SQL (SQLite), star schema data modelling, marketing funnel analysis.
-
 ## Further Improvements
 
 Given more time, more data, or a production environment, the next additions would be:
