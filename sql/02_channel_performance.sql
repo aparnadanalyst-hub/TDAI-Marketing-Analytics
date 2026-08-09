@@ -1,4 +1,4 @@
---Channel performance
+Business Question 2--Channel performance
 --Which communication channel (email, WhatsApp, SMS, LinkedIn DM, Instagram DM, push) drives the best open, click, and reply rates?
 
 SELECT
@@ -13,7 +13,7 @@ JOIN fact_campaign_message fcm
 GROUP BY dc.channel
 ORDER BY open_rate DESC;
 
-----------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------
 --Does channel performance vary by campaign type?
 SELECT
     dcamp.channel,
