@@ -138,8 +138,6 @@ facts (`fact_campaign_message`, `fact_web_session`, `fact_consultation`,
 `fact_enrolment`), with `contact_id` as the spine connecting the marketing, website,
 consultation, and enrolment funnel.
 
-![Data model](data_model.png)
-
 ## Repository Structure
 
 ```
@@ -207,8 +205,6 @@ Analysis in progress. SQL queries and findings being added.
   driver. A follow-up check would be to see whether contacts in these segments already
   engage more with any existing internship or visa-related campaigns, which would turn
   this into an evidence-based recommendation.
-
-*(Further findings to be added as each query is completed.)*
 
 ## Tools Used
 
