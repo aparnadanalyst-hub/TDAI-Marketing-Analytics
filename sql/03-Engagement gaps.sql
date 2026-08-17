@@ -1,4 +1,4 @@
---3.Engagement gaps
+--Business Question 3.Engagement gaps
 --Which segments or contacts are highly engaged but not converting to consultations, or show high unsubscribe/bounce rates?
 WITH engagement AS (
     SELECT
