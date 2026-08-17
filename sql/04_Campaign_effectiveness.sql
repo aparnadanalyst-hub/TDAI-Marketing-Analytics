@@ -56,3 +56,46 @@ SELECT COUNT(*) AS organic_enrolments
 FROM fact_enrolment
 WHERE last_touch_campaign_id = ''
   OR last_touch_campaign_id IS NULL;
+---------------------------------------------------------------------------------------------------------------------------------------
+-- Funnel breakdown for paid Intake launch campaigns specifically
+-- campaign message sent -> consultation booked -> enrolled
+-- Note: fact_web_session has no campaign_id (only utm_source/utm_medium), so the
+-- session step cannot be isolated to a specific campaign in this dataset.
+
+WITH target_campaigns AS (
+    SELECT campaign_id
+    FROM dim_campaign
+    WHERE campaign_type = 'Intake launch'
+      AND is_paid_media = 1
+),
+
+messages AS (
+    SELECT COUNT(*) AS messages_sent, SUM(delivered_flag) AS delivered
+    FROM fact_campaign_message
+    WHERE campaign_id IN (SELECT campaign_id FROM target_campaigns)
+),
+
+consultations AS (
+    SELECT COUNT(*) AS consultations_booked
+    FROM fact_consultation
+    WHERE attributed_campaign_id IN (SELECT campaign_id FROM target_campaigns)
+),
+
+enrolled AS (
+    SELECT COUNT(*) AS enrolments
+    FROM fact_enrolment
+    WHERE last_touch_campaign_id IN (SELECT campaign_id FROM target_campaigns)
+)
+
+SELECT
+    m.messages_sent,
+    m.delivered,
+    c.consultations_booked,
+    ROUND(100.0 * c.consultations_booked / NULLIF(m.delivered, 0), 2) AS delivered_to_consultation_pct,
+    e.enrolments,
+    ROUND(100.0 * e.enrolments / NULLIF(c.consultations_booked, 0), 2) AS consultation_to_enrolment_pct
+FROM messages m, consultations c, enrolled e;
+
+/*Note: fact_campaign_message only captures owned sends. Paid media (Meta/Google Ads)
+ has no traceable messaging step, so a full funnel from ad exposure to consultation
+ cannot be built for paid campaigns with this dataset.*/
