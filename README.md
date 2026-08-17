@@ -180,6 +180,19 @@ Analysis in progress. SQL queries and findings being added.
   consistent across segments, so communication quality is not currently a driver of
   the engagement or conversion gaps.
 
+  ### 4. Campaign Effectiveness
+
+  **Insight**
+  -Paid Intake launch campaigns have the highest cost per enrolment at $1,253.76, driving
+  66 enrolments (about 24% of the 277 traceable enrolments) from $82,748 in spend.
+  -Consultation reminder campaigns (owned) are the most cost-efficient at $19.81 per enrolment,
+  roughly 63 times cheaper, driving 79 enrolments from just $1,564.85 in spend.
+  -Once a lead books a consultation from a paid Intake launch campaign, conversion to enrolment
+  is healthy at 30.56%, so the high cost per enrolment is driven by the cost of generating each
+  consultation (about $383), not by poor follow-through after booking.
+  -Ad-level data (impressions, clicks, cost per click) would be needed to diagnose
+  consultation-generation cost further, and is not available in this dataset.
+
 ## Tools Used
 
 SQL (SQLite), star schema data modelling, marketing funnel analysis.
