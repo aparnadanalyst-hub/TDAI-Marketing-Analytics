@@ -1,4 +1,4 @@
-Business Question 2--Channel performance
+--Business Question 2--Channel performance
 --Which communication channel (email, WhatsApp, SMS, LinkedIn DM, Instagram DM, push) drives the best open, click, and reply rates?
 
 SELECT
