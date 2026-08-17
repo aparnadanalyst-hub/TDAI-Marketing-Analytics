@@ -82,5 +82,5 @@ ORDER BY
     engaged_not_converted_pct DESC;
 
 /* Note: bounce_rate = bounced / (delivered + bounced), which excludes a small
-number of messages (~1.3%) with no recorded delivery outcome (bounced_flag = 0
+number of messages (1.3%) with no recorded delivery outcome (bounced_flag = 0
 AND delivered_flag = 0).*/
